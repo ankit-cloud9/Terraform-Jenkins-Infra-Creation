@@ -15,12 +15,9 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/ankit-cloud9/Terraform-Jenkins-Infra-Creation.git"
-                        }
-                    }
+                 dir("terraform") {
+                     git branch: 'main', url: 'https://github.com/ankit-cloud9/Terraform-Jenkins-Infra-Creation.git'
+                 }
                 }
             }
 
@@ -31,6 +28,7 @@ pipeline {
                 sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
             }
         }
+        
         stage('Approval') {
            when {
                not {
