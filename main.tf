@@ -52,7 +52,7 @@ resource "aws_s3_bucket_public_access_block" "block_public" {
 
 # Secret metadata
 resource "aws_secretsmanager_secret" "my_secret" {
-  name = "dev/secrets"
+  name = "dev/new/secret"
 
   tags = {
     Env = "dev"
