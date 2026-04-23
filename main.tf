@@ -2,6 +2,14 @@ provider "aws" {
   region = "ap-south-1"
 }
 
+# Data block
+data "aws_security_group" "for_testing_sg" {
+  filter {
+    name   = "group-name"
+    values = ["for-testing-sg"]
+  }
+}
+
 # -----------------------------
 # EC2 Instance
 # -----------------------------
@@ -12,7 +20,7 @@ resource "aws_instance" "instance_1" {
   key_name = "deployment-server"
 
   vpc_security_group_ids = [
-    data.aws_security_group.for-testing-sg.id
+    data.aws_security_group.for_testing_sg.id
   ]
 
   tags = {
