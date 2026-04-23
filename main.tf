@@ -9,6 +9,12 @@ resource "aws_instance" "instance_1" {
   ami           = "ami-07216ac99dc46a187"
   instance_type = "t2.micro"
 
+  key_name = "deployment-server"
+
+  vpc_security_group_ids = [
+    data.aws_security_group.for_testing_sg.id
+  ]
+
   tags = {
     Name = "TF-Instance"
     Env  = "dev"
