@@ -33,7 +33,7 @@ resource "aws_instance" "instance_1" {
 # S3 Bucket
 # -----------------------------
 resource "aws_s3_bucket" "tf_bucket" {
-  bucket = "tf-demo-bucket-12345-22-04-26"
+  bucket = "tf-demo-bucket-12345-23-04-26"
 
   tags = {
     Name = "TF-S3-Bucket"
@@ -64,21 +64,21 @@ resource "aws_s3_bucket_public_access_block" "block_public" {
 # AWS Secrets Manager
 # -----------------------------
 
-# Secret metadata
-resource "aws_secretsmanager_secret" "my_secret" {
-  name = "dev/new/secret"
+## Secret metadata
+#resource "aws_secretsmanager_secret" "my_secret" {
+#  name = "dev/new/secret"
 
-  tags = {
-    Env = "dev"
-  }
-}
+#  tags = {
+#    Env = "dev"
+#  }
+#}
 
-# Secret value
-resource "aws_secretsmanager_secret_version" "secret_value" {
-  secret_id = aws_secretsmanager_secret.my_secret.id
+## Secret value
+#resource "aws_secretsmanager_secret_version" "secret_value" {
+# secret_id = aws_secretsmanager_secret.my_secret.id
 
-  secret_string = jsonencode({
-    username = "admin"
-    password = "123"
-  })
-}
+#  secret_string = jsonencode({
+#    username = "admin"
+#    password = "123"
+#  })
+#}
