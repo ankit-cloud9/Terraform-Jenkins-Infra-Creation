@@ -14,7 +14,7 @@ data "aws_security_group" "for_testing_sg" {
 # EC2 Instance
 # -----------------------------
 resource "aws_instance" "instance_1" {
-  ami           = "ami-07216ac99dc46a187"
+  ami           = "ami-0af42eae97566d072"
   instance_type = "t2.micro"
 
   key_name = "deployment-server"
